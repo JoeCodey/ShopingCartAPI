@@ -1,5 +1,7 @@
 const mongodb = require('mongodb') ;
 
+const port = process.env.PORT || 3000 ;
+
 
 let seedData = [
   {
@@ -23,6 +25,8 @@ let seedData = [
 
 let uri = process.env.MONGOLAB_URI ;
 
+console.log('/***********    uri mlab is: ' + uri )
+
 mongodb.MongoClient.connect(uri, function(err, client) {
 
 
@@ -42,7 +46,7 @@ mongodb.MongoClient.connect(uri, function(err, client) {
 
   let products = db.collection('products');
 
-  songs.insert(seedData, function(err, result) {
+  products.insert(seedData, function(err, result) {
 
    if(err) throw err;
 
@@ -50,3 +54,7 @@ mongodb.MongoClient.connect(uri, function(err, client) {
 
 
 });
+
+app.listen(port, ()=>{
+  console.log(`Server is up on Port ${port} at `);
+}) ;
