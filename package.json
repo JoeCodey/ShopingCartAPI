@@ -1,0 +1,26 @@
+{
+  "name": "shopingcartapi",
+  "version": "1.0.0",
+  "description": "Shopping Cart API",
+  "main": "app.js",
+  "scripts": {
+    "test": "run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoeCodey/ShopingCartAPI.git"
+  },
+  "author": "Joseph LeFebvre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoeCodey/ShopingCartAPI/issues"
+  },
+  "homepage": "https://github.com/JoeCodey/ShopingCartAPI#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "hbs": "^4.0.1",
+    "mongodb": "^3.1.12",
+    "mongoose": "^5.4.5"
+  }
+}
