@@ -43,9 +43,10 @@ let seedData = [
 
 let uri = process.env.MONGOLAB_URI ;
 
-console.log('/***********    uri mlab is: ' + uri )
+//console.log('/***********    uri mlab is: ' + uri )
 
 mongodb.MongoClient.connect(uri, function(err, client) {
+
 
 
   if(err) throw err;
@@ -55,23 +56,43 @@ mongodb.MongoClient.connect(uri, function(err, client) {
    * new database, it is created automatically when we insert.
    */
 
-  let db = client.db('shopping_api') ;
+  var db = client.db('shopping_api') ;
 
   /*
    * First we'll add a few songs. Nothing is required to create the
    * songs collection; it is created automatically when we insert.
    */
 
-  let products = db.collection('products');
-
-  products.insert(seedData, function(err, result) {
-
-   if(err) throw err;
-
- });
+ //  let products = db.collection('products');
+ //
+ //  products.insert(seedData, function(err, result) {
+ //
+ //   if(err) throw err;
+ //
+ // });
 
 
 });
+
+app.get('/products/:productTitle',function(req,res){
+    res.send(req.params) ;
+});
+
+app.get("/products", function(req,res){
+
+    db.collection("products").find({}).toArray( function(err, result) {
+    if (err) throw err;
+    res.send(results) ;
+    db.close();
+  })
+
+
+
+} );
+//
+// app
+
+
 
 app.listen(port, ()=>{
   console.log(`Server is up on Port ${port} at `);
