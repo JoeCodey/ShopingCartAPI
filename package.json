@@ -4,7 +4,7 @@
   "description": "Shopping Cart API",
   "main": "app.js",
   "scripts": {
-    "test": "run" ,
+    "test": "run",
     "start": "node app.js"
   },
   "repository": {
