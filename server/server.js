@@ -8,6 +8,7 @@ var current_cart = require('./models/current_cart') ;
 //const Moongoose = require('mongoose ')
 
 var app = express() ;
+app.use(express.static(__dirname+'/public'));
 const port = process.env.PORT || 5000 ;
 
 
@@ -151,8 +152,8 @@ app.get('/completeOrder',(req,res)=>{
 });
 
 app.get('/', (req,res)=>{
-  res.send('<h1>Found Home page<\h>') ;
-})
+  res.send('<h1>ShopingCartAPI</h1><hr><p>see Github <a href="https://github.com/JoeCodey/ShopingCartAPI/blob/master/README.md">Readme </a> for testing details</p>') ;
+});
 
 app.get("/products", function(req,res){
 
