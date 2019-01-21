@@ -5,7 +5,7 @@ const fs = require('fs') ;
 
 var app = express() ;
 
-const port = process.env.PORT || 3000 ;
+const port = process.env.PORT || 5000 ;
 
 
 //Middleware - log requests
@@ -26,7 +26,7 @@ let seedData = [
   {
     title: 'Bicycle',
     price: 200,
-    quantity: 2
+    quantity: 3
   },
   {
     title: 'Helmet',
@@ -37,8 +37,18 @@ let seedData = [
     title: 'Knee pads',
     price: 25,
     quantity: 10
+  },
+  {
+    title: 'saftey lights',
+    price: 15,
+    quantity: 10
+  },
+  {
+    title: 'Bike Chains',
+    price: 50,
+    quantity: 5
   }
-]
+];
 
 
 
@@ -50,10 +60,8 @@ var db ;
 
 MongoClient.connect(uri, function(err, client) {
 
-
-
   if(err) {
-    return console.log("Unable to connect to mongodb server") ;
+    return console.log("/**Unable to connect to mongodb server") ;
   }
 
   console.log("Connecting to MongoDB") ;

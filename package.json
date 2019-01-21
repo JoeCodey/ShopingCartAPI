@@ -5,6 +5,7 @@
   "main": "./server/server.js",
   "scripts": {
     "test": "run",
+    "populate": "node ./playground/playground.js",
     "start": "node ./server/server.js"
   },
   "repository": {
