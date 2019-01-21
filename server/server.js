@@ -152,7 +152,7 @@ app.get('/completeOrder',(req,res)=>{
 });
 
 app.get('/', (req,res)=>{
-  res.send('<h1>ShopingCartAPI</h1><hr><p>see Github <a href="https://github.com/JoeCodey/ShopingCartAPI/blob/master/README.md">Readme </a> for testing details</p>') ;
+  res.send('<h1>ShopingCartAPI</h1><hr><p>see Github <a href="https://github.com/JoeCodey/ShopingCartAPI/blob/master/README.md">Readme</a> for testing details</p>') ;
 });
 
 app.get("/products", function(req,res){
