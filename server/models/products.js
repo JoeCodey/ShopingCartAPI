@@ -1,4 +1,4 @@
-var mongoose = require('mongoose') ; 
+var mongoose = require('mongoose') ;
 
 
 var products = mongoose.model('Products',{
@@ -6,3 +6,5 @@ var products = mongoose.model('Products',{
   price: Number,
   quantity: Number
 });
+
+module.exports = {products} ; 

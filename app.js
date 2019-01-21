@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient ;
-const Moongoose = require('mongoose ')
+const Mongoose = require('mongoose') ;
 const express = require('express') ;
 const fs = require('fs') ;
 
@@ -24,17 +24,17 @@ app.use((req,res,next) => {
 
 let seedData = [
   {
-    Title: 'Bicycle',
+    title: 'Bicycle',
     price: 200,
     quantity: 2
   },
   {
-    Title: 'Helmet',
+    title: 'Helmet',
     price: 50,
     quantity: 5
   },
   {
-    Title: 'Knee pads',
+    title: 'Knee pads',
     price: 25,
     quantity: 10
   }
@@ -48,45 +48,43 @@ var db ;
 
 //console.log('/***********    uri mlab is: ' + uri )
 
-// MongoClient.connect(uri, function(err, client) {
-//
-//
-//
-//   if(err) {
-//     return console.log("Unable to connect to mongodb server") ;
-//   }
-//
-//   console.log("Connecting to MongoDB") ;
-//
-//  db = client.db('shopping_api') ;
-//   /*
-//    * Get the database from the client. Nothing is required to create a
-//    * new database, it is created automatically when we insert.
-//    */
-//
-//    db.collection('products').findOne({},(err, result) => {
-//      console.log("Testprobe of Database: "+JSON.stringify(result,undefined,2)) ;
-//    });
-//
-//
-//   /*
-//    * First we'll add a few songs. Nothing is required to create the
-//    * songs collection; it is created automatically when we insert.
-//    */
-//
-//  //  let products = db.collection('products');
-//  //
-//  //  products.insert(seedData, function(err, result) {
-//  //
-//  //   if(err) throw err;
-//  //
-//  // });
-//
-//
-// });
+MongoClient.connect(uri, function(err, client) {
 
-mongoose.Promise = global.Promise ;
-mongoose.connect(uri);
+
+
+  if(err) {
+    return console.log("Unable to connect to mongodb server") ;
+  }
+
+  console.log("Connecting to MongoDB") ;
+
+ db = client.db('shopping_api') ;
+  /*
+   * Get the database from the client. Nothing is required to create a
+   * new database, it is created automatically when we insert.
+   */
+
+   db.collection('products').findOne({},(err, result) => {
+     console.log("Testprobe of Database: "+JSON.stringify(result,undefined,2)) ;
+   });
+
+
+  /*
+   * First we'll add a few songs. Nothing is required to create the
+   * songs collection; it is created automatically when we insert.
+   */
+
+  let products = db.collection('products');
+
+  products.insert(seedData, function(err, result) {
+
+   if(err) throw err;
+
+ });
+ client.close() ;
+
+});
+
 
 
 
@@ -112,16 +110,16 @@ app.listen(port, ()=>{
   console.log(`Server is up on Port ${port} at `);
 }) ;
 
-var gracefulShutdown= function(){
-  MongoClient.
-}
-
-
-
-// This will handle process.exit():
-process.on('exit', gracefulShutdown);
-
-// This will handle kill commands, such as CTRL+C:
-process.on('SIGINT', gracefulShutdown);
-process.on('SIGTERM', gracefulShutdown);
-process.on('SIGKILL', gracefulShutdown);
+// var gracefulShutdown= function(){
+//   MongoClient.
+// }
+//
+//
+//
+// // This will handle process.exit():
+// process.on('exit', gracefulShutdown);
+//
+// // This will handle kill commands, such as CTRL+C:
+// process.on('SIGINT', gracefulShutdown);
+// process.on('SIGTERM', gracefulShutdown);
+// process.on('SIGKILL', gracefulShutdown);
