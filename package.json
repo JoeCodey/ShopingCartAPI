@@ -2,10 +2,11 @@
   "name": "shopingcartapi",
   "version": "1.0.0",
   "description": "Shopping Cart API",
-  "main": "app.js",
+  "main": "./server/server.js",
   "scripts": {
     "test": "run",
-    "start": "node app.js"
+    "populate": "node ./playground/playground.js",
+    "start": "node ./server/server.js"
   },
   "repository": {
     "type": "git",

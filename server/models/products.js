@@ -1,8 +1,10 @@
-var mongoose = require('mongoose') ; 
+var mongoose = require('mongoose') ;
 
 
-var products = mongoose.model('Products',{
+var Products = mongoose.model('Products',{
   title: String ,
   price: Number,
   quantity: Number
 });
+
+module.exports = {Products} ;
