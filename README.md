@@ -1,4 +1,8 @@
 # ShopingCartAPI
+
+Project Available on Github:  https://github.com/JoeCodey/ShopingCartAPI
+
+
 Simple Web API to create a basic shopping cart. 
 <hr>
 
